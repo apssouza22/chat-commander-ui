@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Chat UX",
+  "name": "Chat UX to improve the user experience of the chat",
   "icons": [
     {
       "src": "favicon.ico",
