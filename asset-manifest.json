@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/chat-commander-ui/static/css/main.52e0a529.css",
-    "main.js": "/chat-commander-ui/static/js/main.56177da7.js",
+    "main.css": "/chat-commander-ui/static/css/main.8a4a92dc.css",
+    "main.js": "/chat-commander-ui/static/js/main.c521cddd.js",
     "static/js/787.ab85545b.chunk.js": "/chat-commander-ui/static/js/787.ab85545b.chunk.js",
     "index.html": "/chat-commander-ui/index.html",
-    "main.52e0a529.css.map": "/chat-commander-ui/static/css/main.52e0a529.css.map",
-    "main.56177da7.js.map": "/chat-commander-ui/static/js/main.56177da7.js.map",
+    "main.8a4a92dc.css.map": "/chat-commander-ui/static/css/main.8a4a92dc.css.map",
+    "main.c521cddd.js.map": "/chat-commander-ui/static/js/main.c521cddd.js.map",
     "787.ab85545b.chunk.js.map": "/chat-commander-ui/static/js/787.ab85545b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.52e0a529.css",
-    "static/js/main.56177da7.js"
+    "static/css/main.8a4a92dc.css",
+    "static/js/main.c521cddd.js"
   ]
 }
