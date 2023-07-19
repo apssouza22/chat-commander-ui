@@ -1,10 +1,3 @@
-(function () {
-    addChatbotButton();
-    createChat();
-    loadChatScript("http://localhost:3000/chat-commander-ui/js/react-bundle.js");
-    addStyle();
-    login(CHATBOT_EMAIL, CHATBOT_PASSWORD)
-}())
 
 const login = async (email, password) => {
     const resp = await makeRequest("https://api.chatdocux.com/api/v1/admin/user/login", {
@@ -60,13 +53,6 @@ async function makeRequest(url, options) {
     }
 }
 
-function loadChatScript(url) {
-    let script = document.createElement('script');
-    script.type = 'module';
-    script.src = url;
-    document.head.appendChild(script);
-}
-
 function addChatbotButton() {
     // Create a button element
     const button = document.createElement('button');
@@ -80,7 +66,7 @@ function addChatbotButton() {
 
     // Add an event listener to show the chatbot
     button.addEventListener('click', function () {
-        const chatbotC = document.querySelector('#chatbot-container');
+        const chatbotC = document.querySelector('#chatbot-iframe-container');
         if (chatbotC.style.display === 'flex') {
             chatbotC.style.display = 'none';
             return;
@@ -91,8 +77,9 @@ function addChatbotButton() {
 }
 
 function createChat() {
-    const chatbotContainer = document.createElement("div");
-    chatbotContainer.id = "chatbot-container";
+    const chatbotContainer = document.createElement("iframe");
+    chatbotContainer.id = "chatbot-iframe-container";
+    chatbotContainer.src = "https://apssouza22.github.io/chat-commander-ui/#/chatbot";
     document.body.appendChild(chatbotContainer);
 }
 
@@ -102,12 +89,12 @@ function addStyle() {
 // Set the CSS rules for the <style> element
     const css = `
     
-#chatbot-container {
+#chatbot-iframe-container {
     display: none;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: #444;
-    width: 50%;
+    width: 40%;
     height: 80%;
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -115,7 +102,7 @@ function addStyle() {
     flex-direction: column;
     position: fixed;
     bottom: 10px;
-    right: 0;
+    right: 5px;
     background: white;
     z-index: 1000;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
@@ -126,3 +113,11 @@ function addStyle() {
     style.textContent = css;
     document.head.appendChild(style);
 }
+
+(function () {
+    console.log("Run chatbot plugin");
+    addChatbotButton();
+    createChat();
+    addStyle();
+    login(CHATBOT_EMAIL, CHATBOT_PASSWORD)
+}());
