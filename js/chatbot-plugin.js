@@ -1,7 +1,7 @@
 (function () {
     addChatbotButton();
     createChat();
-    loadScript("http://localhost:3000/chat-commander-ui/js/react-bundle.js");
+    loadChatScript("http://localhost:3000/chat-commander-ui/js/react-bundle.js");
     addStyle();
     login(CHATBOT_EMAIL, CHATBOT_PASSWORD)
 }())
@@ -60,7 +60,7 @@ async function makeRequest(url, options) {
     }
 }
 
-function loadScript(url) {
+function loadChatScript(url) {
     let script = document.createElement('script');
     script.type = 'module';
     script.src = url;
@@ -114,11 +114,11 @@ function addStyle() {
     overflow: hidden;
     flex-direction: column;
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     right: 0;
     background: white;
-    z-index: 100000;
-    boxShadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
 }
 
 `;
