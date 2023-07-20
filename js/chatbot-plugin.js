@@ -56,13 +56,15 @@ async function makeRequest(url, options) {
 function addChatbotButton() {
     // Create a button element
     const button = document.createElement('button');
-    button.textContent = 'Open ChatUX';
+    button.id = 'btn-chatbot-open';
+    button.textContent = 'Open Chatbot';
 
     // Style the button
     button.style.position = 'fixed';
     button.style.left = '20px';
     button.style.bottom = '15px';
     button.style.zIndex = '100000';
+    button.style.display = 'block';
 
     // Add an event listener to show the chatbot
     button.addEventListener('click', function () {
@@ -115,6 +117,9 @@ function addStyle() {
     bottom: 0;
     right: 0;
     border-radius: 0;
+  }
+  #btn-chatbot-open {
+    display: none;
   }
 }
 `;
