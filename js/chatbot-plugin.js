@@ -108,6 +108,15 @@ function addStyle() {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
 }
 
+@media screen and (max-width: 768px) {
+  #chatbot-iframe-container {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+}
 `;
 
     style.textContent = css;
