@@ -13,7 +13,6 @@ const login = async (email, password) => {
         return
     }
     sessionStorage.setItem("token", resp.data.access_token);
-    alert("token: " + resp.data.access_token)
 };
 
 async function makeRequest(url, options) {
