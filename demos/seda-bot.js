@@ -11,6 +11,6 @@ function loadChatScript(url) {
 window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
     sessionStorage.setItem('pluginMode', 'true');
-    localStorage.setItem('app_key', '19428139')
+    sessionStorage.setItem('app_key', '19428139')
     loadChatScript("https://apssouza22.github.io/chat-commander-ui/js/chatbot-plugin.js");
 });

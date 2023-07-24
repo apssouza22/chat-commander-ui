@@ -13,7 +13,7 @@ const login = async (email, password) => {
         alert("Login failed")
         return
     }
-    localStorage.setItem("token", resp.data.access_token);
+    sessionStorage.setItem("token", resp.data.access_token);
 };
 
 async function makeRequest(url, options) {
