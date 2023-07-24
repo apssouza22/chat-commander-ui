@@ -92,7 +92,7 @@ function addStyle() {
     const css = `
     
 #chatbot-iframe-container {
-    display: none;
+    display: block;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     color: #444;
