@@ -1,4 +1,3 @@
-
 const login = async (email, password) => {
     const resp = await makeRequest("https://api.chatdocux.com/api/v1/admin/user/login", {
         method: "POST",
@@ -14,6 +13,7 @@ const login = async (email, password) => {
         return
     }
     sessionStorage.setItem("token", resp.data.access_token);
+    alert("token: " + resp.data.access_token)
 };
 
 async function makeRequest(url, options) {
@@ -63,7 +63,7 @@ function addChatbotButton() {
     button.style.position = 'fixed';
     button.style.left = '20px';
     button.style.bottom = '15px';
-    button.style.zIndex = '100000';
+    button.style.zIndex = '1000';
     button.style.display = 'block';
 
     // Add an event listener to show the chatbot
@@ -106,7 +106,7 @@ function addStyle() {
     bottom: 10px;
     right: 5px;
     background: white;
-    z-index: 1000;
+    z-index: 10001;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
 }
 
