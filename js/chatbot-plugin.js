@@ -52,18 +52,24 @@ async function makeRequest(url, options) {
     }
 }
 
-function addChatbotButton() {
-    // Create a button element
-    const button = document.createElement('button');
-    button.id = 'btn-chatbot-open';
-    button.textContent = 'Open Chatbot';
+export function toElement(html) {
+    let template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
 
-    // Style the button
-    button.style.position = 'fixed';
-    button.style.left = '20px';
-    button.style.bottom = '15px';
-    button.style.zIndex = '1000';
-    button.style.display = 'block';
+
+function addChatbotButton() {
+
+    const chatBtn = `
+    <div class="intercom-lightweight-app-launcher intercom-launcher" role="button" tabindex="0" aria-label="Open Intercom Messenger" aria-live="polite">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 32"><path d="M28 32s-4.714-1.855-8.527-3.34H3.437C1.54 28.66 0 27.026 0 25.013V3.644C0 1.633 1.54 0 3.437 0h21.125c1.898 0 3.437 1.632 3.437 3.645v18.404H28V32zm-4.139-11.982a.88.88 0 00-1.292-.105c-.03.026-3.015 2.681-8.57 2.681-5.486 0-8.517-2.636-8.571-2.684a.88.88 0 00-1.29.107 1.01 1.01 0 00-.219.708.992.992 0 00.318.664c.142.128 3.537 3.15 9.762 3.15 6.226 0 9.621-3.022 9.763-3.15a.992.992 0 00.317-.664 1.01 1.01 0 00-.218-.707z"></path>
+            </svg>
+    </div>`
+    const button = toElement(chatBtn)
+
+    button.id = 'btn-chatbot-open';
 
     // Add an event listener to show the chatbot
     button.addEventListener('click', function () {
@@ -102,8 +108,8 @@ function addStyle() {
     overflow: hidden;
     flex-direction: column;
     position: fixed;
-    bottom: 10px;
-    right: 5px;
+    bottom: 80px;
+    right: 20px;
     background: white;
     z-index: 10001;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
@@ -117,9 +123,42 @@ function addStyle() {
     right: 0;
     border-radius: 0;
   }
-  #btn-chatbot-open {
-    display: none;
-  }
+}
+
+.intercom-lightweight-app-launcher {
+    position: fixed;
+    z-index: 1000;
+    border: none;
+    bottom: 20px;
+    right: 20px;
+    max-width: 48px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-sizing: content-box;
+    background: white;
+    padding: 8px;
+}
+
+.intercom-lightweight-app-launcher svg{
+    height: 40px;
+}
+
+.intercom-lightweight-app-launcher:hover {
+    transition: transform 250ms cubic-bezier(0.33, 0.00, 0.00, 1.00);
+    transform: scale(1.1);
+}
+.intercom-lightweight-app-launcher-icon {
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    transition: transform 100ms linear, opacity 80ms linear;
+    background: white;
 }
 `;
 
