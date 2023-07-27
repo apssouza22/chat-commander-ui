@@ -87,7 +87,7 @@ function addChatbotButton() {
 function createChat(token, user, appId) {
     const chatbotContainer = document.createElement("iframe");
     chatbotContainer.id = "chatbot-iframe-container";
-    chatbotContainer.src = "http://localhost:3000/chat-commander-ui/#/chatbot?pluginMode=true&token=" + token + "&user=" + user + "&app=" + appId;
+    chatbotContainer.src = "https://apssouza22.github.io/chat-commander-ui/#/chatbot?pluginMode=true&token=" + token + "&user=" + user + "&app=" + appId;
     document.body.appendChild(chatbotContainer);
 }
 

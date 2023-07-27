@@ -9,5 +9,5 @@ function loadChatScript(url) {
     document.head.appendChild(script);
 }
 window.addEventListener("load", (event) => {
-    loadChatScript("/chat-commander-ui/js/chatbot-plugin.js");
+    loadChatScript("https://apssouza22.github.io/chat-commander-ui/js/chatbot-plugin.js");
 });
