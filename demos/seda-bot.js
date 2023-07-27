@@ -1,6 +1,6 @@
 var CHATBOT_EMAIL = "apssouza22@gmail.com"
 var CHATBOT_PASSWORD = "123"
-
+var APP_KEY ='19428139'
 
 function loadChatScript(url) {
     let script = document.createElement('script');
@@ -9,8 +9,5 @@ function loadChatScript(url) {
     document.head.appendChild(script);
 }
 window.addEventListener("load", (event) => {
-    console.log("page is fully loaded");
-    sessionStorage.setItem('pluginMode', 'true');
-    sessionStorage.setItem('app_key', '19428139')
     loadChatScript("https://apssouza22.github.io/chat-commander-ui/js/chatbot-plugin.js");
 });

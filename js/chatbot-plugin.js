@@ -13,6 +13,7 @@ const login = async (email, password) => {
         return
     }
     sessionStorage.setItem("token", resp.data.access_token);
+    return resp.data.access_token
 };
 
 async function makeRequest(url, options) {
@@ -83,10 +84,10 @@ function addChatbotButton() {
     document.body.appendChild(button);
 }
 
-function createChat() {
+function createChat(token, user, appId) {
     const chatbotContainer = document.createElement("iframe");
     chatbotContainer.id = "chatbot-iframe-container";
-    chatbotContainer.src = "https://apssouza22.github.io/chat-commander-ui/#/chatbot";
+    chatbotContainer.src = "http://localhost:3000/chat-commander-ui/#/chatbot?pluginMode=true&token=" + token + "&user=" + user + "&app=" + appId;
     document.body.appendChild(chatbotContainer);
 }
 
@@ -166,10 +167,10 @@ function addStyle() {
     document.head.appendChild(style);
 }
 
-(function () {
+(async function () {
     console.log("Run chatbot plugin");
     addChatbotButton();
-    createChat();
+    const token  = await login(CHATBOT_EMAIL, CHATBOT_PASSWORD)
+    createChat(token, CHATBOT_EMAIL, APP_KEY)
     addStyle();
-    login(CHATBOT_EMAIL, CHATBOT_PASSWORD)
 }());
