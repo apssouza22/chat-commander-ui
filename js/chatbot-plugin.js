@@ -84,10 +84,11 @@ function addChatbotButton() {
     document.body.appendChild(button);
 }
 
-function createChat(token, user, appId) {
+function createChat(token, user, appId, color, appURL) {
+    const params="pluginMode=true&token=" + token + "&user=" + user + "&app=" + appId+ "&appColor=" + color
     const chatbotContainer = document.createElement("iframe");
     chatbotContainer.id = "chatbot-iframe-container";
-    chatbotContainer.src = "https://apssouza22.github.io/chat-commander-ui/#/chatbot?pluginMode=true&token=" + token + "&user=" + user + "&app=" + appId;
+    chatbotContainer.src = appURL + "#/chatbot?"+params;
     document.body.appendChild(chatbotContainer);
 }
 
@@ -102,8 +103,8 @@ function addStyle() {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     color: #444;
-    width: 40%;
-    height: 80%;
+    width: 30%;
+    height: 70%;
     border: 1px solid #ccc;
     border-radius: 25px;
     overflow: hidden;
@@ -171,6 +172,16 @@ function addStyle() {
     console.log("Run chatbot plugin");
     addChatbotButton();
     const token  = await login(CHATBOT_EMAIL, CHATBOT_PASSWORD)
-    createChat(token, CHATBOT_EMAIL, APP_KEY)
+    let color = "";
+    let appUrl = "https://apssouza22.github.io/chat-commander-ui/";
+
+    try{
+        color=APP_COLOR
+    }catch (e) {}
+    try{
+        appUrl=APP_URL
+    }catch (e) {}
+
+    createChat(token, CHATBOT_EMAIL, APP_KEY, color, appUrl)
     addStyle();
 }());

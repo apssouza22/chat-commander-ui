@@ -8,6 +8,7 @@ function loadChatScript(url) {
     script.src = url;
     document.head.appendChild(script);
 }
+
 window.addEventListener("load", (event) => {
     loadChatScript("https://apssouza22.github.io/chat-commander-ui/js/chatbot-plugin.js");
 });
