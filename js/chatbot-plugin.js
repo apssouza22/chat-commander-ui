@@ -106,7 +106,7 @@ function addStyle() {
     width: 30%;
     height: 70%;
     border: 1px solid #ccc;
-    border-radius: 25px;
+    border-radius: 25px 25px 15px 15px;
     overflow: hidden;
     flex-direction: column;
     position: fixed;
