@@ -1,11 +1,7 @@
-const login = async (email, password) => {
-    const resp = await makeRequest("https://api.chatdocux.com/api/v1/admin/user/login", {
-        method: "POST",
-        body: {
-            "email": email,
-            "password": password,
-
-        }
+const login = async (email, app_key) => {
+    const endpoint = `user/${email}/app/${app_key}/auth`
+    const resp = await makeRequest(`https://api.chatdocux.com/api/v1/${endpoint}`, {
+        method: "GET",
     })
 
     if (resp.status !== 200 || resp.data?.access_token == null) {
@@ -170,8 +166,7 @@ function addStyle() {
 
 (async function () {
     console.log("Run chatbot plugin");
-    addChatbotButton();
-    const token  = await login(CHATBOT_EMAIL, CHATBOT_PASSWORD)
+    const token  = await login(CHATBOT_EMAIL, APP_KEY)
     let color = "";
     let appUrl = "https://apssouza22.github.io/chat-commander-ui/";
 
@@ -184,4 +179,5 @@ function addStyle() {
 
     createChat(token, CHATBOT_EMAIL, APP_KEY, color, appUrl)
     addStyle();
+    addChatbotButton();
 }());

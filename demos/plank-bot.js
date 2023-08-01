@@ -1,5 +1,4 @@
 var CHATBOT_EMAIL = "apssouza22@gmail.com"
-var CHATBOT_PASSWORD = "123"
 var APP_KEY ='25984688'
 
 
