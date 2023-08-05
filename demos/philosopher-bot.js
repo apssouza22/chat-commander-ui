@@ -1,5 +1,4 @@
 var CHATBOT_EMAIL = "apssouza22@gmail.com"
-var CHATBOT_PASSWORD = "123"
 var APP_KEY ='38235043'
 var APP_COLOR="black"
 var APP_URL = "https://apssouza22.github.io/chat-commander-ui/"
