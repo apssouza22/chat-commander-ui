@@ -1,5 +1,5 @@
 var CHATBOT_EMAIL = "apssouza22@gmail.com"
-var APP_KEY ='2414319'
+var APP_KEY ='61866002'
 
 function loadChatScript(url) {
     let script = document.createElement('script');
